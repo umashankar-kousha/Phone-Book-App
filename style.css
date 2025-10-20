@@ -8,6 +8,12 @@
   background-color: #ffffff;
   min-height: 100vh;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.homepage {
+  max-width: 1200px;
 }
 
 .heading {
@@ -157,4 +163,40 @@
 
 .operations-btn:hover {
   background-color: #cad4dc;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-container {
+    justify-content: space-evenly;
+  }
+  .contact-card {
+    width: 40%;
+    margin-right: 5px;
+  }
+
+  .pc-search-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mobile-add-contactbtn-container {
+    display: none;
+  }
+  .pc-add-contactbtn {
+    display: block;
+  }
+  .add-contactbtn {
+    padding: 15px;
+    margin-left: 15px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  * {
+    font-size: 15px;
+  }
+  .contact-card {
+    width: 40%;
+    margin-right: 10px;
+  }
 }
