@@ -9,11 +9,16 @@
   min-height: 100vh;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  position: absolute;
 }
 
 .homepage {
   max-width: 1200px;
+  height: 100vh;
+  /* overflow: hidden; */
 }
 
 .heading {
@@ -29,6 +34,7 @@
   display: flex;
   align-items: center;
   border-radius: 25px;
+  margin-bottom: 10px;
 }
 
 .search-icon {
@@ -36,13 +42,16 @@
   font-size: 1.2rem;
 }
 
-#SearchContact {
+#SearchContact,
+.add-contactform-input {
   border: none;
   outline: none;
   padding: 5px 1px;
   background-color: transparent;
   font-size: 1.4rem;
   width: 100%;
+  margin-bottom: 10px;
+  margin-left: 5px;
 }
 
 #SearchContact::placeholder {
@@ -92,8 +101,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 10px;
-  padding-bottom: 25px;
+  margin-bottom: 15px;
+  padding-bottom: 60px;
 }
 
 .contact-card {
@@ -188,6 +197,7 @@
   .add-contactbtn {
     padding: 15px;
     margin-left: 15px;
+    width: 150px;
   }
 }
 
@@ -199,4 +209,73 @@
     width: 40%;
     margin-right: 10px;
   }
+  .add-contactbtn {
+    font-size: 1.2rem;
+  }
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1001;
+  display: none;
+}
+
+.form {
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.forn-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  padding: 15px;
+  border: none;
+  outline: none;
+  margin-right: 10px;
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.save-btn {
+  color: #ffffff;
+  background-color: #4285f4;
+}
+
+.cancel-btn {
+  color: #757575;
+  background-color: #f5f7fa;
+}
+
+.hide {
+  display: none;
+}
+
+.text-hide {
+  overflow: hidden;
 }
