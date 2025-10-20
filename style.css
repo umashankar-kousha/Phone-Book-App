@@ -1,0 +1,160 @@
+* {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 12px;
+}
+
+.bg-container {
+  width: 100%;
+  background-color: #ffffff;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.heading {
+  color: #212121;
+  font-size: 2rem;
+}
+
+.search-container {
+  border: none;
+  padding: 10px;
+  background-color: #f5f7fa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.search-icon {
+  color: #757575;
+  font-size: 1.2rem;
+}
+
+#SearchContact {
+  border: none;
+  outline: none;
+  padding: 5px 1px;
+  background-color: transparent;
+  font-size: 1.4rem;
+  width: 100%;
+}
+
+#SearchContact::placeholder {
+  color: #757575;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.add-contactbtn {
+  padding: 10px;
+  background-color: #4285f4;
+  color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.add-contactbtn:hover {
+  background-color: #4f8fff;
+}
+
+.mobile-add-contactbtn-container {
+  position: fixed;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 1000;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.mobile-add-contactbtn {
+  width: 50%;
+}
+
+.pc-add-contactbtn {
+  display: none;
+}
+
+.contact-container {
+  list-style-type: none;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 25px;
+}
+
+.contact-card {
+  background-color: #eef6fe;
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.initial {
+  background-color: #4285f4;
+
+  color: #ffffff;
+
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid #a1c6f5;
+}
+.initial > span {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212121;
+}
+
+.number {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #b7bfcc;
+}
+
+.contact-operations-container {
+  display: flex;
+  align-self: flex-end;
+}
+
+.operations-btn {
+  background-color: #dbe5ee;
+  padding: 5px;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.operations-btn:hover {
+  background-color: #cad4dc;
+}
