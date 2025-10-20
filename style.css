@@ -109,7 +109,7 @@
   background-color: #eef6fe;
   border-radius: 20px;
   padding: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   width: 90%;
   display: flex;
@@ -228,7 +228,6 @@
   top: 0px;
   left: 0px;
   z-index: 1001;
-  display: none;
 }
 
 .form {
@@ -261,6 +260,7 @@ button {
   border-radius: 25px;
   font-size: 1.2rem;
   font-weight: 500;
+  cursor: pointer;
 }
 .save-btn {
   color: #ffffff;
