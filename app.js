@@ -145,7 +145,7 @@ async function getAllContacts() {
     const data = await response.json();
     allContacts = data;
 
-    console.log(allContacts);
+    //console.log(allContacts);
     contactContainerEl.innerHTML = "";
     renderContacts();
   } catch (error) {
@@ -182,9 +182,13 @@ SearchContactEl.addEventListener("search", (event) => {
         element.phoneNumber.toString().includes(searchtext)
       );
     });
-    allContacts = filteredContacts;
-    contactContainerEl.innerHTML = "";
-    renderContacts();
+    if (filteredContacts.length !== 0) {
+      allContacts = filteredContacts;
+      contactContainerEl.innerHTML = "";
+      renderContacts();
+    } else {
+      contactContainerEl.innerHTML = `<li>No Contacts Found</li>`;
+    }
   }
 });
 
