@@ -73,6 +73,9 @@
 .add-contactbtn:hover {
   background-color: #4f8fff;
 }
+.pc-add-contactbtn {
+  display: none;
+}
 
 .mobile-add-contactbtn-container {
   position: fixed;
@@ -88,10 +91,6 @@
 
 .mobile-add-contactbtn {
   width: 50%;
-}
-
-.pc-add-contactbtn {
-  display: none;
 }
 
 .contact-container {
