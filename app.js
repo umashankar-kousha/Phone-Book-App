@@ -121,20 +121,22 @@ async function updateContact(fullName, phoneNumber) {
 
 updateBtnEl.addEventListener("click", (event) => {
   event.preventDefault();
-  homeSectionEl.classList.remove("text-hide");
-  formSectionEl.classList.add("hide");
-  if (window.innerWidth >= 800) {
-    pcBtnEl.classList.remove("hide");
-  } else {
-    mobileBtnEl.classList.remove("hide");
-  }
-  saveBtnEl.classList.remove("hide");
-  updateBtnEl.classList.add("hide");
-
   let contactName = formNameEl.value;
   let contactNumber = formNumberEl.value;
+  let isValidInput = getValidInputs(contactName, contactNumber);
+  if (isValidInput) {
+    homeSectionEl.classList.remove("text-hide");
+    formSectionEl.classList.add("hide");
+    if (window.innerWidth >= 800) {
+      pcBtnEl.classList.remove("hide");
+    } else {
+      mobileBtnEl.classList.remove("hide");
+    }
+    saveBtnEl.classList.remove("hide");
+    updateBtnEl.classList.add("hide");
 
-  updateContact(contactName, contactNumber);
+    updateContact(contactName, contactNumber);
+  }
 });
 
 function renderContacts() {
@@ -168,7 +170,7 @@ async function getAllContacts() {
     const data = await response.json();
     allContacts = data;
 
-    console.log(allContacts);
+    //console.log(allContacts);
     contactContainerEl.innerHTML = "";
     renderContacts();
   } catch (error) {
