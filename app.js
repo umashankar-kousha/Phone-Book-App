@@ -19,6 +19,23 @@ function toggleElements(element) {
   element.classList.add("hide");
 }
 
+function getValidInputs(fullName, phoneNumber) {
+  let isValidInput = true;
+  if (fullName == "" || !isNaN(Number(fullName))) {
+    isValidInput = false;
+    alert("Please Enter valid Name");
+    return isValidInput;
+  }
+
+  if (phoneNumber == "" || isNaN(Number(phoneNumber))) {
+    isValidInput = false;
+    alert("Please Enter valid Number");
+    return isValidInput;
+  }
+
+  return isValidInput;
+}
+
 mobileBtnEl.addEventListener("click", (event) => {
   toggleElements(event.target);
 });
@@ -45,33 +62,39 @@ function onEditContact(id) {
 
 saveBtnEl.addEventListener("click", async (event) => {
   event.preventDefault();
-  homeSectionEl.classList.remove("text-hide");
-  formSectionEl.classList.add("hide");
-  if (mobileBtnEl.classList.contains("hide")) {
-    mobileBtnEl.classList.remove("hide");
-  } else {
-    pcBtnEl.classList.remove("hide");
-  }
-  const fullName = formNameEl.value;
-  const phoneNumber = formNumberEl.value;
 
-  try {
-    const response = await fetch(`${API}/api/save/contact`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ fullName, phoneNumber }),
-    });
-    if (response) {
-      const data = await response.json();
-      alert(data.message);
-      getAllContacts();
-      document.querySelector("form").reset();
+  const fullName = formNameEl.value;
+  const phoneNumber = formNumberEl.value.trim();
+  //console.log(phoneNumber);
+  //console.log(isNaN(Number(phoneNumber)));
+  let isValidInput = getValidInputs(fullName, phoneNumber);
+
+  if (isValidInput) {
+    homeSectionEl.classList.remove("text-hide");
+    formSectionEl.classList.add("hide");
+    if (mobileBtnEl.classList.contains("hide")) {
+      mobileBtnEl.classList.remove("hide");
+    } else {
+      pcBtnEl.classList.remove("hide");
     }
-  } catch (error) {
-    console.error(error);
-    alert(error.message);
+    try {
+      const response = await fetch(`${API}/api/save/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ fullName, phoneNumber }),
+      });
+      if (response) {
+        const data = await response.json();
+        alert(data.message);
+        getAllContacts();
+        document.querySelector("form").reset();
+      }
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
   }
 });
 
@@ -145,7 +168,7 @@ async function getAllContacts() {
     const data = await response.json();
     allContacts = data;
 
-    //console.log(allContacts);
+    console.log(allContacts);
     contactContainerEl.innerHTML = "";
     renderContacts();
   } catch (error) {
@@ -178,8 +201,8 @@ SearchContactEl.addEventListener("search", (event) => {
   } else {
     const filteredContacts = allContacts.filter((element) => {
       return (
-        element.fullName.toLowerCase().includes(searchtext) ||
-        element.phoneNumber.toString().includes(searchtext)
+        element.fullName.toLowerCase().includes(searchtext.toLowerCase()) ||
+        element.phoneNumber.toString().includes(searchtext.toLowerCase())
       );
     });
     if (filteredContacts.length !== 0) {
@@ -197,3 +220,5 @@ SearchContactEl.addEventListener("blur", (event) => {
     getAllContacts();
   }
 });
+
+// onDeleteContact("68f78b78b62cc9bb59217c74");

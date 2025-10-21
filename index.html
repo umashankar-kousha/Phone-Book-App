@@ -56,6 +56,7 @@
               id="formName"
               placeholder="Name"
               class="add-contactform-input"
+              required
             />
           </div>
           <div class="search-container">
@@ -67,12 +68,15 @@
               id="formNumber"
               placeholder="Phone Number"
               class="add-contactform-input"
+              required
             />
           </div>
           <div class="forn-btn-container">
-            <button class="save-btn button" id="saveBtn">Save</button>
+            <button class="save-btn button" type="submit" id="saveBtn">
+              Save
+            </button>
             <button class="save-btn button hide" id="updateBtn">Update</button>
-            <button class="cancel-btn button">Cancel</button>
+            <button class="cancel-btn button" type="reset">Cancel</button>
           </div>
         </form>
       </section>
